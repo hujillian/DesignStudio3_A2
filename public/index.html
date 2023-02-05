@@ -13,7 +13,7 @@
 
             
 
-            <a-entity camera wasd-controls look-controls position="0 1.6 0">
+            <a-entity id="camera" camera wasd-controls look-controls position="0 1.6 0">
                 <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
                 <!--<a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>-->
             </a-entity>
@@ -34,7 +34,10 @@
             <a-entity   id="box1"
                         class="interactive"
                         position="0 0.5 -2"
-                        geometry="primitive:box; width:1.0; height:1.0; depth:1.0"
+                        geometry="primitive:box;"
+                        height = "1.0"
+                        width = "1.0"
+                        depth = "1.0"
                         material="color:#FF0000;"
                         grab></a-entity>
 

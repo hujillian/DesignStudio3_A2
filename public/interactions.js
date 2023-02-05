@@ -12,31 +12,38 @@ AFRAME.registerComponent('grab',{
 
         THIS_COMPONENT.items = document.querySelector('#box1');
         THIS_COMPONENT.grab = false;
+        let oldPosition = THIS_COMPONENT.items.getAttribute('position');
 
-        //THIS_COMPONENT.items.setAttribute('holdItem', { property:'color:#000000', enabled:false});
-        //THIS_COMPONENT.items.setAttribute('position', {position:"0 5 -2", enabled:false});
+        let itemHeight = THIS_COMPONENT.items.getAttribute('height');
 
-        //let oldPosition = THIS_COMPONENT.items.getAttribute('position');
+        let cameraRef = document.querySelector('#camera');
+        let cameraPos = cameraRef.getAttribute('position');
+        
+        
 
         THIS_COMPONENT.el.addEventListener('click', function(obj){
-            let oldPosition = obj.srcElement.getAttribute('position');
-            //console.log(oldPosition);
 
-            //let newY = oldPosition.y + 5;
-            
+            // Find a new position for the object based on the vector from the camera's position to the object's current position
+            let vectCamToItem = [oldPosition.x - cameraPos.x, oldPosition.y - cameraPos.y, oldPosition.z - cameraPos.z];
+            let magCamToItem = Math.sqrt(Math.pow(vectCamToItem[0], 2) + Math.pow(vectCamToItem[1], 2) + Math.pow(vectCamToItem[2], 2));
+            let normVectCamToItem = [vectCamToItem[0]/magCamToItem, vectCamToItem[1]/magCamToItem, vectCamToItem[2]/magCamToItem];
+            let newPos = [cameraPos.x + 2*normVectCamToItem[0], cameraPos.y + 2*normVectCamToItem[1], cameraPos.z + 2*normVectCamToItem[2]];
+            // Multiplying the normal vector by 2 because that's a good distance of the object to the camera
+
             if(THIS_COMPONENT.grab){
                 // drop item
-                let newY = oldPosition.y - 5;
-                obj.srcElement.setAttribute('position', oldPosition.x + " " + newY + " " + oldPosition.z);
-
+                //let newY = oldPosition.y - 2;
+                //obj.srcElement.setAttribute('position', oldPosition.x + " " + newY + " " + oldPosition.z);
+                obj.srcElement.setAttribute('position', newPos[0] + " " + itemHeight/2 + " " + newPos[2]);
                 //THIS_COMPONENT.items.setAttribute('holdItem', {enabled:false});
                 THIS_COMPONENT.grab = false;
                 console.log("Item dropped");
             }
             else{
                 // pick up item
-                let newY = oldPosition.y + 5;
-                obj.srcElement.setAttribute('position', oldPosition.x + " " + newY + " " + oldPosition.z);
+                //let newY = oldPosition.y + 2;
+                //obj.srcElement.setAttribute('position', (cameraPos.x) + " " + newY + " " + (cameraPos.z - 2));
+                obj.srcElement.setAttribute('position', newPos[0] + " " + newPos[1] + " " + newPos[2]);
                 console.log(obj.srcElement.getAttribute('position'));
 
                 console.log("Item picked up");
@@ -45,31 +52,6 @@ AFRAME.registerComponent('grab',{
                 
             }
         });
-
-        // this.items = document.querySelector('#box1');
-        // this.grab = false;
-
-        // //this.items.setAttribute('holdItem', { property:'translation.y = 10', enabled:false});
-        // this.items.setAttribute('holdItem', { property: 'rotation.y', to:360, loop:true, dur:this.data.duration,
-        // easing:'linear', enabled:false });
-
-        // this.el.addEventListener('click', function(){
-        //     console.log("this: ", this);
-            
-        //     if(this.grab){
-        //         // drop item
-        //         this.items.setAttribute('holdItem', {enabled:false});
-        //         this.grab = false;
-        //         console.log("Item dropped");
-        //     }
-        //     else{
-        //         // pick up item
-        //         console.log("Item picked up");
-        //         this.items.setAttribute('holdItem', {enabled:true});
-        //         this.grab = true;
-                
-        //     }
-        // });
 
     }
 
