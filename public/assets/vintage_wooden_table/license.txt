@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vintage Wooden Table
+* source:	https://sketchfab.com/3d-models/vintage-wooden-table-50d4b35d7afc4e2ca66c5ac265146da6
+* author:	Poring (https://sketchfab.com/poring)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vintage Wooden Table" (https://sketchfab.com/3d-models/vintage-wooden-table-50d4b35d7afc4e2ca66c5ac265146da6) by Poring (https://sketchfab.com/poring) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

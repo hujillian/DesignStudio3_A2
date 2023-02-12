@@ -1,0 +1,483 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1004,
+      "max": [
+        7.7405242919921875,
+        32.30521011352539,
+        8.089548110961914
+      ],
+      "min": [
+        -6.722784042358398,
+        -0.006372690200805664,
+        -6.613536357879639
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 12048,
+      "componentType": 5126,
+      "count": 1004,
+      "max": [
+        1.0,
+        0.9999516010284424,
+        0.9804605841636658
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -0.980462372303009
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1004,
+      "max": [
+        0.9990041255950928,
+        0.8922742009162903,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.9987970590591431,
+        -0.8396490812301636,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1004,
+      "max": [
+        0.9843940138816833,
+        0.972553014755249
+      ],
+      "min": [
+        0.0,
+        3.427267074584961e-07
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 3420,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 24096,
+      "componentType": 5126,
+      "count": 262,
+      "max": [
+        11.406262397766113,
+        23.974964141845703,
+        16.97335433959961
+      ],
+      "min": [
+        4.832032203674316,
+        0.0185394287109375,
+        10.720893859863281
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 27240,
+      "componentType": 5126,
+      "count": 262,
+      "max": [
+        1.0,
+        0.999849796295166,
+        0.9524744749069214
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -0.9510565400123596
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 16064,
+      "componentType": 5126,
+      "count": 262,
+      "max": [
+        0.9998260140419006,
+        0.9161099195480347,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.999882698059082,
+        -0.9161144495010376,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 8032,
+      "componentType": 5126,
+      "count": 262,
+      "max": [
+        0.9957069158554077,
+        0.8255141377449036
+      ],
+      "min": [
+        0.16401439905166626,
+        9.5367431640625e-07
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 13680,
+      "componentType": 5125,
+      "count": 912,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 30384,
+      "componentType": 5126,
+      "count": 731,
+      "max": [
+        -5.2961273193359375,
+        20.304780960083008,
+        15.117835998535156
+      ],
+      "min": [
+        -18.444583892822266,
+        -0.019537925720214844,
+        2.6128973960876465
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 39156,
+      "componentType": 5126,
+      "count": 731,
+      "max": [
+        1.0,
+        0.9999624490737915,
+        0.9851992726325989
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -0.9970688223838806
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 20256,
+      "componentType": 5126,
+      "count": 731,
+      "max": [
+        0.9998320937156677,
+        0.9838964343070984,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.9998095035552979,
+        -0.9867327213287354,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 10128,
+      "componentType": 5126,
+      "count": 731,
+      "max": [
+        0.9824597835540771,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 17328,
+      "componentType": 5125,
+      "count": 2484,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Muko_Art (https://sketchfab.com/Muko_Art)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/old-fantasy-potions-0b0ffbbb5c454bb7879c6f476d3c009b",
+      "title": "Old Fantasy Potions"
+    },
+    "generator": "Sketchfab-14.60.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 27264,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 15976,
+      "byteOffset": 27264,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 47928,
+      "byteOffset": 43240,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 31952,
+      "byteOffset": 91168,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 123120,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_specular"
+  ],
+  "images": [
+    {
+      "uri": "textures/Fantasy_Potions_Tex_baseColor.png"
+    },
+    {
+      "uri": "textures/Fantasy_Potions_Tex_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Fantasy_Potions_Tex_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specularFactor": 0.6384781363143202
+        }
+      },
+      "name": "Fantasy_Potions_Tex",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Potion_01_Fantasy_Potions_Tex_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Potion_02_Fantasy_Potions_Tex_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Potion_03_Fantasy_Potions_Tex_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 11,
+            "POSITION": 10,
+            "TANGENT": 12,
+            "TEXCOORD_0": 13
+          },
+          "indices": 14,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "951155ff06b94d9e9103f22bf54619b7.fbx"
+    },
+    {
+      "children": [
+        3,
+        5,
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "Potion_01"
+    },
+    {
+      "mesh": 0,
+      "name": "Potion_01_Fantasy_Potions_Tex_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "name": "Potion_02"
+    },
+    {
+      "mesh": 1,
+      "name": "Potion_02_Fantasy_Potions_Tex_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "Potion_03"
+    },
+    {
+      "mesh": 2,
+      "name": "Potion_03_Fantasy_Potions_Tex_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

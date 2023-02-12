@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Multi-platform interaction</title><!--Come up with a better title later-->
+        <title>Cat Simulator</title>
         <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
         <script src="interactions.js"></script>
+        <link rel="stylesheet" href="user-gesture.css">
+        <script src="startExperience.js"></script>
     </head>
 
     <body>
-        <a-scene>
-            <a-assets></a-assets>
 
+        <div id="user-gesture-overlay">
+            <div class="center">
+                <button id="user-gesture-button" onclick="startExperience();">become a cat</button>
+            </div>
+        </div>
+
+        <!-- Interaction buttons -->
+        <div id="interaction-buttons" class="center-bottom">
+            <button id="throw-button" onclick="throwObj();" throw-obj="false">throw</button>
+            <button id="eat-button" onclick="eatObj();">eat</button>
+            <button id="meow-button" onclick="meow();">meow</button>
+        </div>
+
+        <a-scene start-experience component-manager renderer="antialis:true; colorManagement:true; physicallyCorrectLights:true;">
+            <a-assets>
+                <!-- Environment map -->
+                <img id="bg-map" src="assets/002_hdrmaps_com_free.jpg">
+
+                <!-- Sound files -->
+                <audio id="ambient-music" src="assets/piano-jazz.mp3" preload="auto" crossorigin="anonymous"></audio>
+                <audio id="eating-sound-file" src="assets/eating-carrot.mp3" preload="auto" crossorigin="anonymous"></audio>
+                <audio id="drop-sound-file" src="assets/wooden-thud.mp3" preload="auto" crossorigin="anonymous"></audio>
+                <audio id="meow-sound-file" src="assets/tomcat.mp3" preload="auto" crossorigin="anonymous"></audio>
+                <audio id="throw-sound-file" src="assets/throw-object.mp3" preload="auto" crossorigin="anonymous"></audio>
+                <audio id="grab-sound-file" src="assets/whoosh.mp3" preload="auto" crossorigin="anonymous"></audio>
             
+                <!-- Models -->
+                <a-asset-item id="globe-file" response-type="arraybuffer" src="assets/wooden_globe/scene.gltf"></a-asset-item>
+                <a-asset-item id="table-file" response-type="arraybuffer" src="assets/vintage_wooden_table/scene.gltf"></a-asset-item>
+                <a-asset-item id="mirror-file" response-type="arraybuffer" src="assets/mirror_a/scene.gltf"></a-asset-item>
+                <a-asset-item id="rocks-file" response-type="arraybuffer" src="assets/blocky_rocks/scene.gltf"></a-asset-item>
+                <a-asset-item id="potions-file" response-type="arraybuffer" src="assets/old_fantasy_potions/scene.gltf"></a-asset-item>
+                <a-asset-item id="oil-lamp-file" response-type="arraybuffer" src="assets/old_kerosene__oil_lamp_-_free_for_download/scene.gltf"></a-asset-item>
+                <a-asset-item id="chair-file" response-type="arraybuffer" src="assets/wooden_chair/scene.gltf"></a-asset-item>
+                <a-asset-item id="crate-file" response-type="arraybuffer" src="assets/wooden_crate_low-poly_pbr/scene.gltf"></a-asset-item>
+                <a-asset-item id="book-file" response-type="arraybuffer" src="assets/book/scene.gltf"></a-asset-item>
+                <a-asset-item id="jug-file" response-type="arraybuffer" src="assets/small_jug/scene.gltf"></a-asset-item>
+            </a-assets>
 
             <a-entity id="camera" camera wasd-controls look-controls position="0 1.6 0">
                 <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
                 <!--<a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>-->
             </a-entity>
 
-            <!--<a-entity light="type:ambient; color:#CCC;"></a-entity>
-            <a-entity light="type:directional; castShadow:true; shadowBias:-0.0005;" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
-                <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
-            </a-entity>-->
             
             <!-- Lights -->
             <a-entity light="type: ambient; color: #CCC"></a-entity>
@@ -31,23 +64,173 @@
             </a-entity>
 
 
-            <a-entity   id="box1"
-                        class="interactive"
-                        position="0 0.5 -2"
-                        geometry="primitive:box;"
-                        height = "1.0"
-                        width = "1.0"
-                        depth = "1.0"
-                        material="color:#FF0000;"
-                        grab></a-entity>
+            <!-- Sounds -->
+            <a-entity id="ambient" sound="src:#ambient-music; autoplay:true; loop:true; positional:false; volume:0.1;"></a-entity>
+            <a-entity id="eating-sound" sound="src:#eating-sound-file;"></a-entity>
+            <a-entity id="drop-sound" sound="src:#drop-sound-file; volume:2;"></a-entity>
+            <a-entity id="meow-sound" sound="src:#meow-sound-file;"></a-entity>
+            <a-entity id="throw-sound" sound="src:#throw-sound-file;"></a-entity>
+            <a-entity id="grab-sound" sound="src:#grab-sound-file;"></a-entity>
+            
 
+            <!-- Items you can interact with-->
+            <a-entity   id="globe" 
+                        class="interactive"
+                        scale="6 6 6" 
+                        position="8 0 0"
+                        gltf-model="#globe-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="rocks" 
+                        class="interactive"
+                        scale="0.0035 0.0035 0.0035" 
+                        position="-7.5 0 7.7"
+                        gltf-model="#rocks-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="potions" 
+                        class="interactive"
+                        scale="5 7 5" 
+                        position="5.6 0 -4.6"
+                        gltf-model="#potions-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="oil-lamp" 
+                        class="interactive"
+                        scale="0.5 0.5 0.5" 
+                        position="-6.8 0 4.7"
+                        gltf-model="#oil-lamp-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="book1" 
+                        class="interactive"
+                        scale="0.03 0.03 0.03" 
+                        position="-7.4 0 -2.2"
+                        gltf-model="#book-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="book2" 
+                        class="interactive"
+                        scale="0.02 0.015 0.02" 
+                        position="-1 0 7.5"
+                        rotation="0 -45 0"
+                        gltf-model="#book-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="jug" 
+                        class="interactive"
+                        scale="30 30 30" 
+                        position="1 0 -5.2"
+                        gltf-model="#jug-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="crate" 
+                        class="interactive"
+                        scale="15 15 15" 
+                        position="6.7 0 7"
+                        rotation="0 45 0"
+                        gltf-model="#crate-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity> 
+
+
+            <!-- Non interactive objects -->
+
+            <a-entity   id="chair"
+                        scale="6 6 6" 
+                        position="-3 0 -4.5"
+                        rotation="0 180 0"
+                        gltf-model="#chair-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="table"
+                        scale="3 4 3.5" 
+                        position="-3 0 -7"
+                        rotation="0 90 0"
+                        gltf-model="#table-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+            <a-entity   id="mirror"
+                        scale="7 7 7" 
+                        position="7 0 -6"
+                        rotation="0 -45 0"
+                        gltf-model="#mirror-file"
+                        circles-sphere-env-map="src:#bg-map"
+                        grab
+                        animation>
+            </a-entity>
+
+            <!-- Floor -->
             <a-entity   id="plane"
                         position="0 0 0"
                         rotation="-90 0 0"
-                        scale="10 10 10"
+                        scale="26 26 26"
                         geometry="primitive:plane; width:1.0; height:1.0;"
-                        material="color:rgb(170,170,180);"></a-entity>
-        </a-scene>
+                        material="color:rgb(79, 24, 24);">
+            </a-entity>
+            <!-- Walls-->
+            <a-entity   id="wall1"
+                        position="0 8 -13"
+                        rotation="0 0 0"
+                        scale="26 16 26"
+                        geometry="primitive:plane; width:1.0; height:1.0;"
+                        material="color:rgb(194, 163, 145);">
+            </a-entity>
+            <a-entity   id="wall2"
+                        position="0 8 13"
+                        rotation="0 0 0"
+                        scale="26 16 26"
+                        geometry="primitive:plane; width:1.0; height:1.0;"
+                        material="color:rgb(194, 163, 145);">
+            </a-entity>
+            <a-entity   id="wall3"
+                        position="13 8 0"
+                        rotation="0 90 0"
+                        scale="26 16 26"
+                        geometry="primitive:plane; width:1.0; height:1.0;"
+                        material="color:rgb(194, 163, 145);">
+            </a-entity>
+            <a-entity   id="wall4"
+                        position="-13 8 0"
+                        rotation="0 90 0"
+                        scale="26 16 26"
+                        geometry="primitive:plane; width:1.0; height:1.0;"
+                        material="color:rgb(194, 163, 145);">
+            </a-entity>
 
+
+
+            <!-- Room environment-->
+            <a-entity   id = "bg"
+                        position = "0 0 0"
+                        rotation = "0 0 0"
+                        scale = "1 1 1"
+                        geometry = "primitive:sphere; radius:30;"
+                        material = "src:#bg-map; shader:flat; side:back; flatShading:true;">
+            </a-entity>
+
+            
+
+        </a-scene>
     </body>
 </html>
