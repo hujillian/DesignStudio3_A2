@@ -1,1 +1,2 @@
-# Studio_A2_Multi-Platform_Interactions
+# Design Studio 3: A2 - Multi-platform interactions
+Become a cat
